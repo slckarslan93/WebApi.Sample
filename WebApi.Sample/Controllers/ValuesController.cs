@@ -1,6 +1,14 @@
-﻿namespace WebApi.Sample.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace WebApi.Sample.Controllers;
+
+[Route("api/Values")]
+[ApiController]
+public sealed class ValuesController : ControllerBase
 {
-    public sealed class ValuesController
+    [HttpGet("Calculate")]
+    public int Calculate()
     {
+        return 5 + 4;
     }
 }
