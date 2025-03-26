@@ -31,6 +31,12 @@ public sealed class ValuesController : ControllerBase
         return StatusCode(200, new { Message = (x + y) * 10 });
     }
 
+    [HttpGet("{x}/{y}/{name}")]
+    public IActionResult Hello6(int x, int y,string name)
+    {
+        return StatusCode(200, new { Message = (x + y) * 10 });
+    }
+
 
     [HttpPost]
     public IActionResult Hello4(Product request)
