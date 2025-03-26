@@ -7,14 +7,15 @@ namespace WebApi.Sample.Controllers;
 [ApiController]
 public class ProductsController : ControllerBase
 {
-    public static List<Product> Products {get;set;} = new();
+    public static List<Product> Products { get; set; } = new();
 
     [HttpPost]
     public IActionResult Create(Product product)
     {
         Products.Add(product);
-        return Created();
+        return Created(); 
     }
+
 
     [HttpGet]
     public IActionResult Get()
