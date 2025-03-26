@@ -24,4 +24,39 @@ public sealed class ValuesController : ControllerBase
     {
         return StatusCode(200,new { Message = "Hello world" });
     }
+
+    [HttpGet]
+    public IActionResult Hello3(int x, int y)
+    {
+        return StatusCode(200, new { Message = (x + y) * 10 });
+    }
+
+
+    [HttpPost]
+    public IActionResult Hello4(Product request)
+    {
+        return StatusCode(200, new { Message = "Hello world" });
+    }
+
+    [HttpPost]
+    public IActionResult Hello5(ProductDto request)
+    {
+        return StatusCode(200, new { Message = "Hello world" });
+    }
+}
+
+public class Product
+{
+    public string Name { get; set; } = string.Empty;
+}
+
+public class Category
+{
+    public string Name { get; set; } = string.Empty;
+}
+
+public class ProductDto
+{
+    public Product Product { get; set; }
+    public Category Category { get; set; }
 }
