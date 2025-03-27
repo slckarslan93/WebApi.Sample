@@ -1,4 +1,5 @@
 using Scalar.AspNetCore;
+using WebApi.Sample;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +11,13 @@ builder.Services.AddOpenApi();
 builder.Services.AddCors();
 
 
-var app = builder.Build();
+builder.Services.AddExceptionHandler<ExceptionHandler>()
+    .AddProblemDetails();
 
+var app = builder.Build();
 //Middlewares
+
+app.UseExceptionHandler();
 
 if (app.Environment.IsDevelopment())
 {
